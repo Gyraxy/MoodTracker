@@ -12,10 +12,12 @@ import com.duboscq.nicolas.moodtracker.Controllers.Fragments.PageFragment;
 public class PageAdapter extends FragmentPagerAdapter{
 
     private int[] colors;
+    private int[] smileys;
 
-    public PageAdapter(FragmentManager mgr, int[] colors){
+    public PageAdapter(FragmentManager mgr, int[] colors, int[] smileys){
         super(mgr);
         this.colors = colors;
+        this.smileys = smileys;
     }
 
     @Override
@@ -25,7 +27,7 @@ public class PageAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position){
-        return(PageFragment.newInstance(position, this.colors[position]));
+        return(PageFragment.newInstance(position, this.colors[position], this.smileys[position]));
     }
 
 }

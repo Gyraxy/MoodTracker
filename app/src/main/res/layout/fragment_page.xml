@@ -15,17 +15,17 @@
         android:layout_weight="1.5" />
 
     <ImageView
-        android:id="@+id/smiley_normal_img"
+        android:id="@+id/smiley_img"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/smiley_normal" />
+        android:layout_gravity="center" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

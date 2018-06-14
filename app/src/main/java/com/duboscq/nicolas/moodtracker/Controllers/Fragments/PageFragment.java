@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,13 +20,14 @@ public class PageFragment extends Fragment {
 
     // 1 - Create keys for our Bundle
     private static final String KEY_COLOR="color";
+    private static final String KEY_SMILEYS="smileys";
 
 
     public PageFragment() { }
 
 
     // 2 - Method that will create a new instance of PageFragment, and add data to its bundle.
-    public static PageFragment newInstance(int position, int color) {
+    public static PageFragment newInstance(int position, int color, int smileys) {
 
         // 2.1 Create new fragment
         PageFragment frag = new PageFragment();
@@ -33,6 +35,7 @@ public class PageFragment extends Fragment {
         // 2.2 Create bundle and add it some data
         Bundle args = new Bundle();
         args.putInt(KEY_COLOR, color);
+        args.putInt(KEY_SMILEYS, smileys);
         frag.setArguments(args);
 
         return(frag);
@@ -49,14 +52,17 @@ public class PageFragment extends Fragment {
         LinearLayout rootView= (LinearLayout) result.findViewById(R.id.fragment_page_rootview);
         ImageButton button_commentary = (ImageButton) result.findViewById(R.id.commentary_btn);
         ImageButton button_historic = (ImageButton) result.findViewById(R.id.historic_btn);
+        ImageView smiley_img = (ImageView) result.findViewById(R.id.smiley_img);
 
         // 5 - Get data from Bundle (created in method newInstance)
         int color = getArguments().getInt(KEY_COLOR, -1);
+        int smileys = getArguments().getInt(KEY_SMILEYS,-1);
 
         // 6 - Update widgets with it
         rootView.setBackgroundColor(color);
         button_commentary.setBackgroundColor(color);
         button_historic.setBackgroundColor(color);
+        smiley_img.setImageResource(smileys);
 
         return result;
     }
