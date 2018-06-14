@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -45,13 +47,16 @@ public class PageFragment extends Fragment {
 
         // 4 - Get widgets from layout and serialise it
         LinearLayout rootView= (LinearLayout) result.findViewById(R.id.fragment_page_rootview);
+        ImageButton button_commentary = (ImageButton) result.findViewById(R.id.commentary_btn);
+        ImageButton button_historic = (ImageButton) result.findViewById(R.id.historic_btn);
 
         // 5 - Get data from Bundle (created in method newInstance)
         int color = getArguments().getInt(KEY_COLOR, -1);
 
         // 6 - Update widgets with it
         rootView.setBackgroundColor(color);
-
+        button_commentary.setBackgroundColor(color);
+        button_historic.setBackgroundColor(color);
 
         return result;
     }
