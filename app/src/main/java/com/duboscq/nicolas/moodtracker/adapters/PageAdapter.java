@@ -1,10 +1,10 @@
-package com.duboscq.nicolas.moodtracker.Adapters;
+package com.duboscq.nicolas.moodtracker.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.duboscq.nicolas.moodtracker.Controllers.Fragments.PageFragment;
+import com.duboscq.nicolas.moodtracker.controllers.fragments.PageFragment;
 import com.duboscq.nicolas.moodtracker.R;
 
 /**
@@ -13,12 +13,10 @@ import com.duboscq.nicolas.moodtracker.R;
 public class PageAdapter extends FragmentPagerAdapter{
 
     private int[] colors;
-    private int[] smileys;
 
-    public PageAdapter(FragmentManager mgr, int[] colors, int[] smileys){
+    public PageAdapter(FragmentManager mgr, int[] colors){
         super(mgr);
         this.colors = colors;
-        this.smileys = smileys;
     }
 
     @Override
