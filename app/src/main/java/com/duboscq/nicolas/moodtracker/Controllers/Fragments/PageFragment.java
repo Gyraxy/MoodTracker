@@ -27,7 +27,7 @@ public class PageFragment extends Fragment {
 
 
     // 2 - Method that will create a new instance of PageFragment, and add data to its bundle.
-    public static PageFragment newInstance(int position, int color, int smileys) {
+    public static PageFragment newInstance(int color, int smileys) {
 
         // 2.1 Create new fragment
         PageFragment frag = new PageFragment();
@@ -49,10 +49,8 @@ public class PageFragment extends Fragment {
         View result = inflater.inflate(R.layout.fragment_page, container, false);
 
         // 4 - Get widgets from layout and serialise it
-        LinearLayout rootView= (LinearLayout) result.findViewById(R.id.fragment_page_rootview);
-        ImageButton button_commentary = (ImageButton) result.findViewById(R.id.commentary_btn);
-        ImageButton button_historic = (ImageButton) result.findViewById(R.id.historic_btn);
-        ImageView smiley_img = (ImageView) result.findViewById(R.id.smiley_img);
+        LinearLayout rootView = result.findViewById(R.id.fragment_page_rootview);
+        ImageView smiley_img = result.findViewById(R.id.smiley_img);
 
         // 5 - Get data from Bundle (created in method newInstance)
         int color = getArguments().getInt(KEY_COLOR, -1);
@@ -60,8 +58,6 @@ public class PageFragment extends Fragment {
 
         // 6 - Update widgets with it
         rootView.setBackgroundColor(color);
-        button_commentary.setBackgroundColor(color);
-        button_historic.setBackgroundColor(color);
         smiley_img.setImageResource(smileys);
 
         return result;

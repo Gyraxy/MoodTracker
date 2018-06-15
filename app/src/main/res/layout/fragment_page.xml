@@ -32,20 +32,22 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/commentary_btn"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
             android:src="@drawable/ic_note_add_black" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/historic_btn"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
             android:src="@drawable/ic_history_black" />
 
 

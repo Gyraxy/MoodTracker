@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void configureViewPager(){
-        ViewPager pager = (ViewPager)findViewById(R.id.activity_main_viewpager);
+        ViewPager pager = findViewById(R.id.activity_main_viewpager);
         pager.setAdapter(new PageAdapter(getSupportFragmentManager(), getResources().getIntArray(R.array.colorPagesViewPager), getResources().getIntArray(R.array.smileyImage)){
         });
         pager.setCurrentItem(2);
