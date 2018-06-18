@@ -3,7 +3,6 @@ package com.duboscq.nicolas.moodtracker.adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
 import com.duboscq.nicolas.moodtracker.controllers.fragments.PageFragment;
 import com.duboscq.nicolas.moodtracker.R;
 
