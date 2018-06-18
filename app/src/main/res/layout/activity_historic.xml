@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controllers.activities.HistoricActivity"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/historic_textView_7d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/seven_days" />
+
+    <TextView
+        android:id="@+id/historic_textView_6d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/six_days" />
+
+    <TextView
+        android:id="@+id/historic_textView_5d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/five_days" />
+
+    <TextView
+        android:id="@+id/historic_textView_4d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/four_days" />
+
+    <TextView
+        android:id="@+id/historic_textView_3d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/three_days" />
+
+    <TextView
+        android:id="@+id/historic_textView_2d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/two_days" />
+
+    <TextView
+        android:id="@+id/historic_textView_1d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/one_day" />
+
+
+</LinearLayout>

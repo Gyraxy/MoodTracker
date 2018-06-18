@@ -3,7 +3,6 @@ package com.duboscq.nicolas.moodtracker.controllers.activities;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import com.duboscq.nicolas.moodtracker.adapters.PageAdapter;
 import com.duboscq.nicolas.moodtracker.R;
 

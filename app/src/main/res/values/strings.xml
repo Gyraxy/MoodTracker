@@ -3,4 +3,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="seven_days">Il y a une semaine</string>
+    <string name="six_days">Il y a six jours</string>
+    <string name="five_days">Il y a cinq jours</string>
+    <string name="four_days">Il y a quatre jours</string>
+    <string name="three_days">Il y a trois jours</string>
+    <string name="two_days">Avant-hier</string>
+    <string name="one_day">Hier</string>
 </resources>

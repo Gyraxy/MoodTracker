@@ -3,6 +3,7 @@ package com.duboscq.nicolas.moodtracker.controllers.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -14,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.duboscq.nicolas.moodtracker.R;
+import com.duboscq.nicolas.moodtracker.controllers.activities.HistoricActivity;
+import com.duboscq.nicolas.moodtracker.controllers.activities.MainActivity;
 
 
 public class PageFragment extends Fragment implements View.OnClickListener{
@@ -73,13 +76,11 @@ public class PageFragment extends Fragment implements View.OnClickListener{
                 comment_popup.setPositiveButton("VALIDER", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
                 comment_popup.setNegativeButton("ANNULER", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
                 comment_popup.show();
@@ -87,7 +88,13 @@ public class PageFragment extends Fragment implements View.OnClickListener{
         });
 
         // 6-2 New Activity when clicked on Historic Button
-        historic_tbn.setOnClickListener(this);
+        historic_tbn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(getActivity(), HistoricActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
         return result;
     }
