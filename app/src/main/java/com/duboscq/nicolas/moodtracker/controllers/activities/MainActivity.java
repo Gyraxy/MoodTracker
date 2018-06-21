@@ -8,11 +8,19 @@ import com.duboscq.nicolas.moodtracker.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int mPage;
+    public static final String CURRENT_PAGE = "CURRENT_PAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (savedInstanceState != null) {
+            mPage = savedInstanceState.getInt(CURRENT_PAGE);
+        } else {
+            mPage = 2;
+        }
 
         this.configureViewPager();
     }
@@ -21,6 +29,6 @@ public class MainActivity extends AppCompatActivity {
         ViewPager pager = findViewById(R.id.activity_main_viewpager);
         pager.setAdapter(new PageAdapter(getSupportFragmentManager(), getResources().getIntArray(R.array.colorPagesViewPager)){
         });
-        pager.setCurrentItem(2);
+        pager.setCurrentItem(mPage);
     }
 }

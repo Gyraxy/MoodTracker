@@ -19,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:contentDescription="@null"/>
 
     <Space
         android:layout_width="match_parent"
@@ -38,8 +39,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/ic_note_add_black" />
+            android:layout_marginStart="15dp"
+            android:src="@drawable/ic_note_add_black"
+            android:contentDescription="@null"/>
 
         <ImageView
             android:id="@+id/historic_btn"
@@ -47,8 +49,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:src="@drawable/ic_history_black" />
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_history_black"
+            android:contentDescription="@null"/>
 
 
     </RelativeLayout>
