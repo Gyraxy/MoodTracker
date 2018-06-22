@@ -1,69 +1,30 @@
 package com.duboscq.nicolas.moodtracker.models;
 
+import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.Nullable;
-
-import java.util.Map;
-import java.util.Set;
+import android.preference.PreferenceManager;
 
 /**
  * Created by Nicolas DUBOSCQ on 20/06/2018
  */
-public class SharedPreferencesTool implements SharedPreferences {
-    @Override
-    public Map<String, ?> getAll() {
-        return null;
+public class SharedPreferencesTool {
+
+    public static String getString(Context context, String key){
+        SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return mPreferences.getString(key,"");
     }
 
-    @Nullable
-    @Override
-    public String getString(String key, @Nullable String defValue) {
-        return null;
+    public static int getInt(Context context, String key, int defaultvalue){
+        SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return mPreferences.getInt(key,defaultvalue);
     }
 
-    @Nullable
-    @Override
-    public Set<String> getStringSet(String key, @Nullable Set<String> defValues) {
-        return null;
+    public static void putString(Context context, String key, String value){
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putString(key, value).apply();
     }
 
-    @Override
-    public int getInt(String key, int defValue) {
-        return 0;
+    public static void putInt(Context context, String key, int value){
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putInt(key, value).apply();
     }
 
-    @Override
-    public long getLong(String key, long defValue) {
-        return 0;
-    }
-
-    @Override
-    public float getFloat(String key, float defValue) {
-        return 0;
-    }
-
-    @Override
-    public boolean getBoolean(String key, boolean defValue) {
-        return false;
-    }
-
-    @Override
-    public boolean contains(String key) {
-        return false;
-    }
-
-    @Override
-    public Editor edit() {
-        return null;
-    }
-
-    @Override
-    public void registerOnSharedPreferenceChangeListener(OnSharedPreferenceChangeListener listener) {
-
-    }
-
-    @Override
-    public void unregisterOnSharedPreferenceChangeListener(OnSharedPreferenceChangeListener listener) {
-
-    }
 }

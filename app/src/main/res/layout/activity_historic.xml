@@ -7,55 +7,194 @@
     tools:context=".controllers.activities.HistoricActivity"
     android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/historic_textView_7d"
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/seven_days" />
+        android:orientation="horizontal"
+        android:id="@+id/historic_layout_7d">
 
-    <TextView
-        android:id="@+id/historic_textView_6d"
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/historic_textView_7d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/seven_days"
+            android:textStyle="bold"
+            android:textColor="@color/Dark"/>
+
+        <ImageView
+            android:contentDescription="@string/desc"
+            android:id="@+id/comment_7d_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/ic_comment_black_48px" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/six_days" />
+        android:orientation="horizontal"
+        android:id="@+id/historic_layout_6d">
 
-    <TextView
-        android:id="@+id/historic_textView_5d"
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/historic_textView_6dd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/six_days"
+            android:textStyle="bold"
+            android:textColor="@color/Dark"/>
+
+        <ImageView
+            android:contentDescription="@string/desc"
+            android:id="@+id/comment_6d_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/ic_comment_black_48px" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/five_days" />
+        android:orientation="horizontal"
+        android:id="@+id/historic_layout_5d">
 
-    <TextView
-        android:id="@+id/historic_textView_4d"
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/historic_textView_5d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/five_days"
+            android:textStyle="bold"
+            android:textColor="@color/Dark"/>
+
+        <ImageView
+            android:contentDescription="@string/desc"
+            android:id="@+id/comment_5d_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/ic_comment_black_48px" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/four_days" />
+        android:orientation="horizontal"
+        android:id="@+id/historic_layout_4d">
 
-    <TextView
-        android:id="@+id/historic_textView_3d"
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/historic_textView_4d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/four_days"
+            android:textStyle="bold"
+            android:textColor="@color/Dark"/>
+
+        <ImageView
+            android:contentDescription="@string/desc"
+            android:id="@+id/comment_4d_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/ic_comment_black_48px" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/three_days" />
+        android:orientation="horizontal"
+        android:id="@+id/historic_layout_3d">
 
-    <TextView
-        android:id="@+id/historic_textView_2d"
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/historic_textView_3d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/three_days"
+            android:textStyle="bold"
+            android:textColor="@color/Dark"/>
+
+        <ImageView
+            android:contentDescription="@string/desc"
+            android:id="@+id/comment_3d_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/ic_comment_black_48px" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/two_days" />
+        android:orientation="horizontal"
+        android:id="@+id/historic_layout_2d" >
 
-    <TextView
-        android:id="@+id/historic_textView_1d"
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/historic_textView_2d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/two_days"
+            android:textStyle="bold"
+            android:textColor="@color/Dark"/>
+
+        <ImageView
+            android:contentDescription="@string/desc"
+            android:id="@+id/comment_2d_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/ic_comment_black_48px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/one_day" />
+        android:orientation="horizontal"
+        android:id="@+id/historic_layout_1d">
+
+        <TextView
+            android:id="@+id/historic_textView_1d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/one_day"
+            android:textStyle="bold"
+            android:textColor="@color/Dark"/>
+
+        <ImageView
+            android:contentDescription="@string/desc"
+            android:id="@+id/comment_1d_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/ic_comment_black_48px" />
+
+    </RelativeLayout>
+
 
 
 </LinearLayout>

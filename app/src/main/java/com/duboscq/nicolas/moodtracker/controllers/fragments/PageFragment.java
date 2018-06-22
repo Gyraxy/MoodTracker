@@ -4,9 +4,10 @@ package com.duboscq.nicolas.moodtracker.controllers.fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,7 @@ import android.widget.Toast;
 
 import com.duboscq.nicolas.moodtracker.R;
 import com.duboscq.nicolas.moodtracker.controllers.activities.HistoricActivity;
-import com.duboscq.nicolas.moodtracker.controllers.activities.MainActivity;
-import com.duboscq.nicolas.moodtracker.views.VerticalViewPager;
+import com.duboscq.nicolas.moodtracker.models.SharedPreferencesTool;
 
 
 public class PageFragment extends Fragment implements View.OnClickListener{
@@ -71,15 +71,14 @@ public class PageFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onClick(View v) {
                 final AlertDialog.Builder comment_popup_diag = new AlertDialog.Builder(getActivity());
-                LayoutInflater inflater = getActivity().getLayoutInflater();
-                View popup_view = inflater.inflate(R.layout.comment_popup, null);
-                comment_popup_diag.setView(inflater.inflate(R.layout.comment_popup, null));
-                EditText edit_txt_comment = popup_view.findViewById(R.id.comments_txt);
-                final String strg_comment = edit_txt_comment.getText().toString();
+                comment_popup_diag.setTitle("Commentaire");
+                final EditText edittxt_comment_popup = new EditText(getActivity());
+                comment_popup_diag.setView(edittxt_comment_popup);
                 comment_popup_diag.setPositiveButton("VALIDER", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(getContext(),"HALLO" ,Toast.LENGTH_LONG).show();
+                        final String strg_comment = edittxt_comment_popup.getText().toString();
+                        PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putString("COMMENT",strg_comment).apply();
                     }
                 });
                 comment_popup_diag.setNegativeButton("ANNULER", new DialogInterface.OnClickListener() {

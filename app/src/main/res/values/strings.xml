@@ -8,4 +8,5 @@
     <string name="two_days">Avant-hier</string>
     <string name="one_day">Hier</string>
     <string name="commentary">Commentaire</string>
+    <string name="desc">description</string>
 </resources>
