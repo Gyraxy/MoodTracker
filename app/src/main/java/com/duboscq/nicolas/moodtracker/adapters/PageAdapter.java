@@ -11,7 +11,7 @@ import com.duboscq.nicolas.moodtracker.R;
  */
 public class PageAdapter extends FragmentPagerAdapter{
 
-    private int[] colors;
+    private final int[] colors;
 
     public PageAdapter(FragmentManager mgr, int[] colors){
         super(mgr);

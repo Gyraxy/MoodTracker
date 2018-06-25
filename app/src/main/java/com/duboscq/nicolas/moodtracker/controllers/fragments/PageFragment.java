@@ -4,7 +4,6 @@ package com.duboscq.nicolas.moodtracker.controllers.fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -14,11 +13,13 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.duboscq.nicolas.moodtracker.R;
 import com.duboscq.nicolas.moodtracker.controllers.activities.HistoricActivity;
-import com.duboscq.nicolas.moodtracker.models.SharedPreferencesTool;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class PageFragment extends Fragment implements View.OnClickListener{
@@ -56,6 +57,7 @@ public class PageFragment extends Fragment implements View.OnClickListener{
         ImageView smiley_img = result.findViewById(R.id.smiley_img);
         final ImageView comment_btn = result.findViewById(R.id.commentary_btn);
         ImageView historic_tbn = rootView.findViewById(R.id.historic_btn);
+        final String todayDate = getDateTime();
 
 
         // Get data from Bundle (created in method newInstance)
@@ -78,7 +80,7 @@ public class PageFragment extends Fragment implements View.OnClickListener{
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         final String strg_comment = edittxt_comment_popup.getText().toString();
-                        PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putString("COMMENT",strg_comment).apply();
+                        PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putString("COMMENT"+todayDate,strg_comment).apply();
                     }
                 });
                 comment_popup_diag.setNegativeButton("ANNULER", new DialogInterface.OnClickListener() {
@@ -104,5 +106,11 @@ public class PageFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+    }
+
+    private String getDateTime() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 }

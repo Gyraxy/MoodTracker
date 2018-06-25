@@ -1,4 +1,4 @@
-package com.duboscq.nicolas.moodtracker.models;
+package com.duboscq.nicolas.moodtracker.controllers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
