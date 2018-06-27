@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".controllers.activities.HistoricActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/light_grey">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -20,16 +21,17 @@
             android:layout_height="wrap_content"
             android:text="@string/seven_days"
             android:textStyle="bold"
-            android:textColor="@color/Dark"/>
+            android:textColor="@color/Dark"
+            android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:contentDescription="@string/desc"
             android:id="@+id/comment_7d_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/desc"
             android:src="@drawable/ic_comment_black_48px" />
 
     </RelativeLayout>
@@ -47,16 +49,17 @@
             android:layout_height="wrap_content"
             android:text="@string/six_days"
             android:textStyle="bold"
-            android:textColor="@color/Dark"/>
+            android:textColor="@color/Dark"
+            android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:contentDescription="@string/desc"
             android:id="@+id/comment_6d_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/desc"
             android:src="@drawable/ic_comment_black_48px" />
 
     </RelativeLayout>
@@ -74,16 +77,17 @@
             android:layout_height="wrap_content"
             android:text="@string/five_days"
             android:textStyle="bold"
-            android:textColor="@color/Dark"/>
+            android:textColor="@color/Dark"
+            android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:contentDescription="@string/desc"
             android:id="@+id/comment_5d_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/desc"
             android:src="@drawable/ic_comment_black_48px" />
 
     </RelativeLayout>
@@ -101,16 +105,17 @@
             android:layout_height="wrap_content"
             android:text="@string/four_days"
             android:textStyle="bold"
-            android:textColor="@color/Dark"/>
+            android:textColor="@color/Dark"
+            android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:contentDescription="@string/desc"
             android:id="@+id/comment_4d_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/desc"
             android:src="@drawable/ic_comment_black_48px" />
 
     </RelativeLayout>
@@ -128,16 +133,17 @@
             android:layout_height="wrap_content"
             android:text="@string/three_days"
             android:textStyle="bold"
-            android:textColor="@color/Dark"/>
+            android:textColor="@color/Dark"
+            android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:contentDescription="@string/desc"
             android:id="@+id/comment_3d_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/desc"
             android:src="@drawable/ic_comment_black_48px" />
 
     </RelativeLayout>
@@ -155,7 +161,8 @@
             android:layout_height="wrap_content"
             android:text="@string/two_days"
             android:textStyle="bold"
-            android:textColor="@color/Dark"/>
+            android:textColor="@color/Dark"
+            android:textSize="@dimen/size_title"/>
 
         <ImageView
             android:contentDescription="@string/desc"
@@ -164,7 +171,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="30dp"
             android:src="@drawable/ic_comment_black_48px" />
     </RelativeLayout>
 
@@ -181,16 +188,17 @@
             android:layout_height="wrap_content"
             android:text="@string/one_day"
             android:textStyle="bold"
-            android:textColor="@color/Dark"/>
+            android:textColor="@color/Dark"
+            android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:contentDescription="@string/desc"
             android:id="@+id/comment_1d_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/desc"
             android:src="@drawable/ic_comment_black_48px" />
 
 

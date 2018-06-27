@@ -26,6 +26,8 @@ public class PageFragment extends Fragment implements View.OnClickListener{
 
     private static final String KEY_COLOR = "color";
     private static final String KEY_SMILEYS = "smileys";
+    String strg_popup_comment;
+    EditText edittxt_comment_popup;
 
     public PageFragment() {
     }
@@ -74,13 +76,13 @@ public class PageFragment extends Fragment implements View.OnClickListener{
             public void onClick(View v) {
                 final AlertDialog.Builder comment_popup_diag = new AlertDialog.Builder(getActivity());
                 comment_popup_diag.setTitle("Commentaire");
-                final EditText edittxt_comment_popup = new EditText(getActivity());
+                edittxt_comment_popup = new EditText(getActivity());
                 comment_popup_diag.setView(edittxt_comment_popup);
                 comment_popup_diag.setPositiveButton("VALIDER", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        final String strg_comment = edittxt_comment_popup.getText().toString();
-                        PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putString("COMMENT"+todayDate,strg_comment).apply();
+                        strg_popup_comment = edittxt_comment_popup.getText().toString();
+                        PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putString("COMMENT"+todayDate,strg_popup_comment).apply();
                     }
                 });
                 comment_popup_diag.setNegativeButton("ANNULER", new DialogInterface.OnClickListener() {

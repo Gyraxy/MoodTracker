@@ -12,7 +12,6 @@ import com.duboscq.nicolas.moodtracker.R;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class HistoricActivity extends AppCompatActivity {
 
@@ -89,13 +88,13 @@ public class HistoricActivity extends AppCompatActivity {
         historic_6d = findViewById(R.id.historic_layout_6d);
         historic_7d = findViewById(R.id.historic_layout_7d);
 
-        historic_1d.setBackgroundColor(setBgdcolor(position_1d));
-        historic_2d.setBackgroundColor(setBgdcolor(position_2d));
-        historic_3d.setBackgroundColor(setBgdcolor(position_3d));
-        historic_4d.setBackgroundColor(setBgdcolor(position_4d));
-        historic_5d.setBackgroundColor(setBgdcolor(position_5d));
-        historic_6d.setBackgroundColor(setBgdcolor(position_6d));
-        historic_7d.setBackgroundColor(setBgdcolor(position_7d));
+        historic_1d.setBackgroundColor(checkBackgroundcolor(position_1d));
+        historic_2d.setBackgroundColor(checkBackgroundcolor(position_2d));
+        historic_3d.setBackgroundColor(checkBackgroundcolor(position_3d));
+        historic_4d.setBackgroundColor(checkBackgroundcolor(position_4d));
+        historic_5d.setBackgroundColor(checkBackgroundcolor(position_5d));
+        historic_6d.setBackgroundColor(checkBackgroundcolor(position_6d));
+        historic_7d.setBackgroundColor(checkBackgroundcolor(position_7d));
 
         checkVisibility(comment_1d_txt, comment_1d_imv);
         checkVisibility(comment_2d_txt, comment_2d_imv);
@@ -104,6 +103,14 @@ public class HistoricActivity extends AppCompatActivity {
         checkVisibility(comment_5d_txt, comment_5d_imv);
         checkVisibility(comment_6d_txt, comment_6d_imv);
         checkVisibility(comment_7d_txt, comment_7d_imv);
+
+        historic_1d.getLayoutParams().width= setLayoutwidth(position_1d);
+        historic_2d.getLayoutParams().width= setLayoutwidth(position_2d);
+        historic_3d.getLayoutParams().width= setLayoutwidth(position_3d);
+        historic_4d.getLayoutParams().width= setLayoutwidth(position_4d);
+        historic_5d.getLayoutParams().width= setLayoutwidth(position_5d);
+        historic_6d.getLayoutParams().width= setLayoutwidth(position_6d);
+        historic_7d.getLayoutParams().width= setLayoutwidth(position_7d);
 
         comment_1d_imv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,7 +165,7 @@ public class HistoricActivity extends AppCompatActivity {
         }
     }
 
-    private int setBgdcolor(int Int) {
+    private int checkBackgroundcolor(int Int) {
         switch (Int) {
             case 0:
                 return (ContextCompat.getColor(getApplicationContext(), R.color.faded_red));
@@ -171,16 +178,10 @@ public class HistoricActivity extends AppCompatActivity {
             case 4:
                 return (ContextCompat.getColor(getApplicationContext(), R.color.banana_yellow));
             case 5:
-                return (ContextCompat.getColor(getApplicationContext(),R.color.white));
+                return (ContextCompat.getColor(getApplicationContext(),R.color.light_grey));
             default:
                 return 0;
         }
-    }
-
-    private String getDateTime() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        Date date = new Date();
-        return dateFormat.format(date);
     }
 
     private String addDayTime(int day){
@@ -188,5 +189,24 @@ public class HistoricActivity extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE,day);
         return dateFormat.format(cal.getTime());
+    }
+
+    private int setLayoutwidth(int Int){
+        switch (Int){
+            case 0:
+                return 400;
+            case 1:
+                return 570;
+            case 2:
+                return 740;
+            case 3:
+                return 910;
+            case 4:
+                return 1080;
+            case 5:
+                return 1080;
+                default:
+                    return 1080;
+        }
     }
 }
