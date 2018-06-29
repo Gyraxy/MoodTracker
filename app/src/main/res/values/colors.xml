@@ -13,6 +13,7 @@
     <color name="banana_yellow">#fff9ec4f</color>
     <color name="white">#FFFFFF</color>
     <color name="light_grey">#D3D3D3</color>
+    <color name="green_light">#66C166</color>
 
     <array name="colorPagesViewPager">
     <item>#ffde3c50</item>

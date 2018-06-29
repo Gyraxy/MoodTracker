@@ -13,10 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/historic_layout_7d">
+        android:id="@+id/layout_historic_7d">
 
         <TextView
-            android:id="@+id/historic_textView_7d"
+            android:id="@+id/layout_historic_7d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/seven_days"
@@ -25,7 +25,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/comment_7d_img"
+            android:id="@+id/layout_historic_comment_7d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -41,10 +41,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/historic_layout_6d">
+        android:id="@+id/layout_historic_6d">
 
         <TextView
-            android:id="@+id/historic_textView_6dd"
+            android:id="@+id/layout_historic_6d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/six_days"
@@ -53,7 +53,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/comment_6d_img"
+            android:id="@+id/layout_historic_comment_6d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -69,10 +69,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/historic_layout_5d">
+        android:id="@+id/layout_historic_5d">
 
         <TextView
-            android:id="@+id/historic_textView_5d"
+            android:id="@+id/layout_historic_5d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/five_days"
@@ -81,7 +81,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/comment_5d_img"
+            android:id="@+id/layout_historic_comment_5d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -97,10 +97,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/historic_layout_4d">
+        android:id="@+id/layout_historic_4d">
 
         <TextView
-            android:id="@+id/historic_textView_4d"
+            android:id="@+id/layout_historic_4d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/four_days"
@@ -109,7 +109,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/comment_4d_img"
+            android:id="@+id/layout_historic_comment_4d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -125,10 +125,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/historic_layout_3d">
+        android:id="@+id/layout_historic_3d">
 
         <TextView
-            android:id="@+id/historic_textView_3d"
+            android:id="@+id/layout_historic_3d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/three_days"
@@ -137,7 +137,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/comment_3d_img"
+            android:id="@+id/layout_historic_comment_3d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -153,10 +153,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/historic_layout_2d" >
+        android:id="@+id/layout_historic_2d" >
 
         <TextView
-            android:id="@+id/historic_textView_2d"
+            android:id="@+id/layout_historic_2d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/two_days"
@@ -165,13 +165,13 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:contentDescription="@string/desc"
-            android:id="@+id/comment_2d_img"
+            android:id="@+id/layout_historic_comment_2d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="30dp"
+            android:contentDescription="@string/desc"
             android:src="@drawable/ic_comment_black_48px" />
     </RelativeLayout>
 
@@ -180,10 +180,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/historic_layout_1d">
+        android:id="@+id/layout_historic_1d">
 
         <TextView
-            android:id="@+id/historic_textView_1d"
+            android:id="@+id/layout_historic_1d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/one_day"
@@ -192,7 +192,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/comment_1d_img"
+            android:id="@+id/layout_historic_comment_1d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

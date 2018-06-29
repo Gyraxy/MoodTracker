@@ -15,6 +15,8 @@ import java.util.Calendar;
 
 public class HistoricActivity extends AppCompatActivity {
 
+    private static final String KEY_COMMENT = "COMMENT";
+    private static final String KEY_POSITION = "POSITION";
     private String comment_7d_txt;
     private String comment_6d_txt;
     private String comment_5d_txt;
@@ -57,36 +59,36 @@ public class HistoricActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historic);
 
-        comment_7d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString("COMMENT"+date_7d, "");
-        comment_6d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString("COMMENT"+date_6d, "");
-        comment_5d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString("COMMENT"+date_5d, "");
-        comment_4d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString("COMMENT"+date_4d, "");
-        comment_3d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString("COMMENT"+date_3d, "");
-        comment_2d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString("COMMENT"+date_2d, "");
-        comment_1d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString("COMMENT"+date_1d, "");
-        position_7d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt("POSITION"+date_7d, 5);
-        position_6d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt("POSITION"+date_6d, 5);
-        position_5d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt("POSITION"+date_5d, 5);
-        position_4d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt("POSITION"+date_4d, 5);
-        position_3d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt("POSITION"+date_3d, 5);
-        position_2d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt("POSITION"+date_2d, 5);
-        position_1d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt("POSITION"+date_1d, 5);
+        comment_7d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString(KEY_COMMENT+date_7d, "");
+        comment_6d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString(KEY_COMMENT+date_6d, "");
+        comment_5d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString(KEY_COMMENT+date_5d, "");
+        comment_4d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString(KEY_COMMENT+date_4d, "");
+        comment_3d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString(KEY_COMMENT+date_3d, "");
+        comment_2d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString(KEY_COMMENT+date_2d, "");
+        comment_1d_txt = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getString(KEY_COMMENT+date_1d, "");
+        position_7d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt(KEY_POSITION+date_7d, 5);
+        position_6d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt(KEY_POSITION+date_6d, 5);
+        position_5d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt(KEY_POSITION+date_5d, 5);
+        position_4d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt(KEY_POSITION+date_4d, 5);
+        position_3d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt(KEY_POSITION+date_3d, 5);
+        position_2d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt(KEY_POSITION+date_2d, 5);
+        position_1d = PreferenceManager.getDefaultSharedPreferences(HistoricActivity.this).getInt(KEY_POSITION+date_1d, 5);
 
-        comment_1d_imv = findViewById(R.id.comment_1d_img);
-        comment_2d_imv = findViewById(R.id.comment_2d_img);
-        comment_3d_imv = findViewById(R.id.comment_3d_img);
-        comment_4d_imv = findViewById(R.id.comment_4d_img);
-        comment_5d_imv = findViewById(R.id.comment_5d_img);
-        comment_6d_imv = findViewById(R.id.comment_6d_img);
-        comment_7d_imv = findViewById(R.id.comment_7d_img);
+        comment_1d_imv = findViewById(R.id.layout_historic_comment_1d_imv);
+        comment_2d_imv = findViewById(R.id.layout_historic_comment_2d_imv);
+        comment_3d_imv = findViewById(R.id.layout_historic_comment_3d_imv);
+        comment_4d_imv = findViewById(R.id.layout_historic_comment_4d_imv);
+        comment_5d_imv = findViewById(R.id.layout_historic_comment_5d_imv);
+        comment_6d_imv = findViewById(R.id.layout_historic_comment_6d_imv);
+        comment_7d_imv = findViewById(R.id.layout_historic_comment_7d_imv);
 
-        historic_1d = findViewById(R.id.historic_layout_1d);
-        historic_2d = findViewById(R.id.historic_layout_2d);
-        historic_3d = findViewById(R.id.historic_layout_3d);
-        historic_4d = findViewById(R.id.historic_layout_4d);
-        historic_5d = findViewById(R.id.historic_layout_5d);
-        historic_6d = findViewById(R.id.historic_layout_6d);
-        historic_7d = findViewById(R.id.historic_layout_7d);
+        historic_1d = findViewById(R.id.layout_historic_1d);
+        historic_2d = findViewById(R.id.layout_historic_2d);
+        historic_3d = findViewById(R.id.layout_historic_3d);
+        historic_4d = findViewById(R.id.layout_historic_4d);
+        historic_5d = findViewById(R.id.layout_historic_5d);
+        historic_6d = findViewById(R.id.layout_historic_6d);
+        historic_7d = findViewById(R.id.layout_historic_7d);
 
         historic_1d.setBackgroundColor(checkBackgroundcolor(position_1d));
         historic_2d.setBackgroundColor(checkBackgroundcolor(position_2d));
@@ -192,21 +194,22 @@ public class HistoricActivity extends AppCompatActivity {
     }
 
     private int setLayoutwidth(int Int){
+        int width = getWindowManager().getDefaultDisplay().getWidth();
         switch (Int){
             case 0:
-                return 400;
+                return (int)Math.round(width*0.4);
             case 1:
-                return 570;
+                return (int)Math.round(width*0.55);
             case 2:
-                return 740;
+                return (int)Math.round(width*0.7);
             case 3:
-                return 910;
+                return (int)Math.round(width*0.85);
             case 4:
-                return 1080;
+                return width;
             case 5:
-                return 1080;
+                return width;
                 default:
-                    return 1080;
+                    return width;
         }
     }
 }

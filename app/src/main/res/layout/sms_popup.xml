@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/green_light"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/layout_phone_number_edt"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:hint="@string/phone_number"/>
+
+        <TextView
+            android:id="@+id/layout_sms_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="22dp"
+            android:textSize="@dimen/size_title"
+            android:text="@string/sms"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/layout_contacts_imv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="26dp"
+            app:srcCompat="@drawable/ico_contacts"
+            android:contentDescription="@string/desc"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/layout_sms_edt"
+            android:layout_width="193dp"
+            android:layout_height="78dp"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            android:background="@color/white"
+            android:hint=""/>
+
+        <ImageView
+            android:id="@+id/layout_send_imv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/ico_send"
+            android:contentDescription="@string/desc"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
