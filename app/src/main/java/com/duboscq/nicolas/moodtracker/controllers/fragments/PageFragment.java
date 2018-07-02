@@ -1,13 +1,12 @@
 package com.duboscq.nicolas.moodtracker.controllers.fragments;
 
-
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -18,45 +17,29 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.duboscq.nicolas.moodtracker.R;
 import com.duboscq.nicolas.moodtracker.controllers.activities.HistoricActivity;
-
+import com.duboscq.nicolas.moodtracker.utils.SharedPreferencesTool;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 public class PageFragment extends Fragment implements View.OnClickListener{
 
-    private static final String KEY_COLOR = "color";
-    private static final String KEY_SMILEYS = "smileys";
-    private static final String KEY_COMMENT = "COMMENT";
-    private static final String KEY_POSITION = "POSITION";
-    String strg_popup_comment;
-    String todayDate;
-    EditText edittxt_comment_popup;
-    ImageView comment_btn;
-    ImageView smiley_img;
-    ImageView historic_btn;
-    ImageView sms_btn;
-    int color;
-    int smileys;
-    int position;
+    private static final String KEY_COLOR = "color",KEY_SMILEYS = "smileys",KEY_COMMENT = "COMMENT",KEY_POSITION = "POSITION";
+    private String strg_popup_comment, todayDate, phone_number,sms_message, comment_today_txt, sms_txt;
+    private EditText edittxt_comment_popup,sms_edt_txt,phone_number_edt_txt;
+    private ImageView comment_btn,smiley_img,historic_btn,sms_btn,send_btn;
+    View result,sms_popup_view;
+    int color,smileys,position;
     LinearLayout rootView;
-    View result;
-    String phone_number;
-    String sms_message;
-    String comment_today_txt;
-    String sms_txt;
+    LayoutInflater inflater1;
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =0;
 
     public PageFragment() {
     }
-
 
     public static PageFragment newInstance(int color, int smileys) {
 
@@ -73,20 +56,18 @@ public class PageFragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+    public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         // Get layout of PageFragment
         result = inflater.inflate(R.layout.fragment_page, container, false);
 
         // Get widgets from layout and serialise it
         rootView = result.findViewById(R.id.fragment_page_rootview);
-        smiley_img = result.findViewById(R.id.layout_fragment_smiley_imv);
-        comment_btn = result.findViewById(R.id.layout_fragment_commentary_imv);
-        historic_btn = result.findViewById(R.id.layout_fragment_historic_imv);
-        sms_btn = result.findViewById(R.id.layout_fragment_sms_imv);
+        smiley_img = result.findViewById(R.id.fragment_page_smiley_imv);
+        comment_btn = result.findViewById(R.id.fragment_page_commentary_imv);
+        historic_btn = result.findViewById(R.id.fragment_page_historic_imv);
+        sms_btn = result.findViewById(R.id.fragment_page_sms_imv);
         todayDate = getDateTime();
-
 
         // Get data from Bundle (created in method newInstance)
         color = getArguments().getInt(KEY_COLOR, -1);
@@ -108,7 +89,7 @@ public class PageFragment extends Fragment implements View.OnClickListener{
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         strg_popup_comment = edittxt_comment_popup.getText().toString();
-                        PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putString(KEY_COMMENT+todayDate,strg_popup_comment).apply();
+                        SharedPreferencesTool.putString(getActivity(),KEY_COMMENT+todayDate,strg_popup_comment);
                     }
                 });
                 comment_popup_diag.setNegativeButton("ANNULER", new DialogInterface.OnClickListener() {
@@ -133,27 +114,31 @@ public class PageFragment extends Fragment implements View.OnClickListener{
         sms_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-            final AlertDialog.Builder sms_popup_diag = new AlertDialog.Builder(getActivity());
-            LayoutInflater inflater1 = getLayoutInflater();
-            View sms_popup_view = inflater1.inflate(R.layout.sms_popup,null);
-            final EditText sms_edt_txt = sms_popup_view.findViewById(R.id.layout_sms_edt);
-            ImageView send_btn = sms_popup_view.findViewById(R.id.layout_send_imv);
-            final EditText phone_number_edt_txt=sms_popup_view.findViewById(R.id.layout_phone_number_edt);
-            comment_today_txt = PreferenceManager.getDefaultSharedPreferences(getActivity()).getString(KEY_COMMENT+todayDate, "");
-            position = PreferenceManager.getDefaultSharedPreferences(getActivity()).getInt(KEY_POSITION+todayDate,5);
-            sms_txt = getTxtSmiley(position)+" - "+comment_today_txt;
-            sms_edt_txt.setText(sms_txt, TextView.BufferType.EDITABLE);
-            send_btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    phone_number = phone_number_edt_txt.getText().toString();
-                    sms_message=sms_edt_txt.getText().toString();
-                    sendSMSMessage();
-                }
-            });
-            sms_popup_diag.setView(sms_popup_view);
-
-            sms_popup_diag.show();
+                final AlertDialog.Builder sms_popup_diag = new AlertDialog.Builder(getActivity());
+                inflater1 = getLayoutInflater();
+                sms_popup_view = inflater1.inflate(R.layout.sms_popup,null);
+                sms_edt_txt = sms_popup_view.findViewById(R.id.sms_popup_sms_edt);
+                send_btn = sms_popup_view.findViewById(R.id.sms_popup_send_imv);
+                phone_number_edt_txt=sms_popup_view.findViewById(R.id.sms_popup_phone_number_edt);
+                comment_today_txt = SharedPreferencesTool.getString(getActivity(),KEY_COMMENT+todayDate);
+                position = SharedPreferencesTool.getInt(getActivity(),KEY_POSITION+todayDate,5);
+                sms_txt = getTxtSmiley(position)+" - "+comment_today_txt;
+                sms_edt_txt.setText(sms_txt, TextView.BufferType.EDITABLE);
+                send_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        phone_number = phone_number_edt_txt.getText().toString();
+                        sms_message = sms_edt_txt.getText().toString();
+                        if (phone_number.length()==0){
+                            Toast.makeText(getActivity(),"Veuillez entrer un numéro de téléphone", Toast.LENGTH_SHORT).show();
+                        }else if (phone_number.length()== 10) {
+                            sendSMSMessage();
+                        }
+                        else Toast.makeText(getActivity(), "Veuillez entrer un numéro de téléphone valide", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                sms_popup_diag.setView(sms_popup_view);
+                sms_popup_diag.show();
             }
         });
 
@@ -161,8 +146,7 @@ public class PageFragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View v) {
-    }
+    public void onClick(View v) {}
 
     private String getDateTime() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -199,34 +183,34 @@ public class PageFragment extends Fragment implements View.OnClickListener{
                     new String[]{Manifest.permission.SEND_SMS},
                     MY_PERMISSIONS_REQUEST_SEND_SMS);
         } else {
-            SendTextMsg();
+            sendTextMsg();
         }
     }
     @Override
-    public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode,@NonNull String permissions[],@NonNull int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_SEND_SMS: {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     SmsManager smsManager = SmsManager.getDefault();
                     smsManager.sendTextMessage(phone_number, null, sms_message, null, null);
-                    Toast.makeText(getActivity(), "SMS sent.",
+                    Toast.makeText(getActivity(), "SMS envoyé",
                             Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getActivity(),
-                            "SMS faild, please try again.", Toast.LENGTH_LONG).show();
-                    return;
+                            "Echec envoi SMS, veuillez réessayer", Toast.LENGTH_LONG).show();
+                    //return;
                 }
             }
         }
 
     }
 
-    private void SendTextMsg() {
+    private void sendTextMsg() {
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(phone_number, null, sms_message, null, null);
 
-        Toast.makeText(getActivity(), "SMS sent.",
+        Toast.makeText(getActivity(), "SMS envoyé",
                 Toast.LENGTH_LONG).show();
     }
 }

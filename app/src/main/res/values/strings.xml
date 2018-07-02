@@ -1,5 +1,8 @@
 <resources>
+    <!-- APPLICATION NAME -->
     <string name="app_name">MoodTracker</string>
+
+    <!-- HISTORIC ACTIVITY -->
     <string name="seven_days">Il y a une semaine</string>
     <string name="six_days">Il y a six jours</string>
     <string name="five_days">Il y a cinq jours</string>
@@ -9,6 +12,8 @@
     <string name="one_day">Hier</string>
     <string name="commentary">Commentaire</string>
     <string name="desc">description</string>
+
+    <!-- FRAGMENT ACTIVITY  -->
     <string name="phone_number">Numéro de téléphone</string>
     <string name="sms">SMS</string>
 </resources>

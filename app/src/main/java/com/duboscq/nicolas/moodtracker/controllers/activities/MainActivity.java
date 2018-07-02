@@ -6,17 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.duboscq.nicolas.moodtracker.adapters.PageAdapter;
 import com.duboscq.nicolas.moodtracker.R;
-import com.duboscq.nicolas.moodtracker.controllers.SharedPreferencesTool;
+import com.duboscq.nicolas.moodtracker.utils.SharedPreferencesTool;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int mPosition;
+    int mPosition;
     private int mPage;
     private final String todayDate = getDateTime();
+    DateFormat dateFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             mPage = mPosition;
         }
-
         this.configureViewPager();
     }
 
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String getDateTime() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.FRANCE);
         Date date = new Date();
         return dateFormat.format(date);
     }

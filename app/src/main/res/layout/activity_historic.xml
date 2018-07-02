@@ -13,10 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/layout_historic_7d">
+        android:id="@+id/activity_historic_7d_rlayout">
 
         <TextView
-            android:id="@+id/layout_historic_7d_txv"
+            android:id="@+id/activity_historic_7d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/seven_days"
@@ -25,7 +25,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/layout_historic_comment_7d_imv"
+            android:id="@+id/activity_historic_comment_7d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -41,10 +41,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/layout_historic_6d">
+        android:id="@+id/activity_historic_6d_rlayout">
 
         <TextView
-            android:id="@+id/layout_historic_6d_txv"
+            android:id="@+id/activity_historic_6d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/six_days"
@@ -53,7 +53,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/layout_historic_comment_6d_imv"
+            android:id="@+id/activity_historic_comment_6d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -69,10 +69,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/layout_historic_5d">
+        android:id="@+id/activity_historic_5d_rlayout">
 
         <TextView
-            android:id="@+id/layout_historic_5d_txv"
+            android:id="@+id/activity_historic_5d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/five_days"
@@ -81,7 +81,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/layout_historic_comment_5d_imv"
+            android:id="@+id/activity_historic_comment_5d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -97,10 +97,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/layout_historic_4d">
+        android:id="@+id/activity_historic_4d_rlayout">
 
         <TextView
-            android:id="@+id/layout_historic_4d_txv"
+            android:id="@+id/activity_historic_4d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/four_days"
@@ -109,7 +109,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/layout_historic_comment_4d_imv"
+            android:id="@+id/activity_historic_comment_4d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -125,10 +125,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/layout_historic_3d">
+        android:id="@+id/activity_historic_3d_rlayout">
 
         <TextView
-            android:id="@+id/layout_historic_3d_txv"
+            android:id="@+id/activity_historic_3d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/three_days"
@@ -137,7 +137,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/layout_historic_comment_3d_imv"
+            android:id="@+id/activity_historic_comment_3d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -153,10 +153,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/layout_historic_2d" >
+        android:id="@+id/activity_historic_2d_rlayout" >
 
         <TextView
-            android:id="@+id/layout_historic_2d_txv"
+            android:id="@+id/activity_historic_2d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/two_days"
@@ -165,7 +165,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/layout_historic_comment_2d_imv"
+            android:id="@+id/activity_historic_comment_2d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -180,10 +180,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:id="@+id/layout_historic_1d">
+        android:id="@+id/activity_historic_1d_rlayout">
 
         <TextView
-            android:id="@+id/layout_historic_1d_txv"
+            android:id="@+id/activity_historic_1d_txv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/one_day"
@@ -192,7 +192,7 @@
             android:textSize="@dimen/size_title"/>
 
         <ImageView
-            android:id="@+id/layout_historic_comment_1d_imv"
+            android:id="@+id/activity_historic_comment_1d_imv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
