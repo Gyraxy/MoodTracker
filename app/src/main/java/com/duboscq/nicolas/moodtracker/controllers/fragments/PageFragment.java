@@ -25,6 +25,7 @@ import com.duboscq.nicolas.moodtracker.utils.SharedPreferencesTool;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class PageFragment extends Fragment implements View.OnClickListener{
 
@@ -32,10 +33,13 @@ public class PageFragment extends Fragment implements View.OnClickListener{
     private String strg_popup_comment, todayDate, phone_number,sms_message, comment_today_txt, sms_txt;
     private EditText edittxt_comment_popup,sms_edt_txt,phone_number_edt_txt;
     private ImageView comment_btn,smiley_img,historic_btn,sms_btn,send_btn;
-    View result,sms_popup_view;
-    int color,smileys,position;
-    LinearLayout rootView;
-    LayoutInflater inflater1;
+    private View result;
+    private View sms_popup_view;
+    private int color;
+    private int smileys;
+    private int position;
+    private LinearLayout rootView;
+    private LayoutInflater inflater1;
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =0;
 
     public PageFragment() {
@@ -62,11 +66,7 @@ public class PageFragment extends Fragment implements View.OnClickListener{
         result = inflater.inflate(R.layout.fragment_page, container, false);
 
         // Get widgets from layout and serialise it
-        rootView = result.findViewById(R.id.fragment_page_rootview);
-        smiley_img = result.findViewById(R.id.fragment_page_smiley_imv);
-        comment_btn = result.findViewById(R.id.fragment_page_commentary_imv);
-        historic_btn = result.findViewById(R.id.fragment_page_historic_imv);
-        sms_btn = result.findViewById(R.id.fragment_page_sms_imv);
+        findViewbyId();
         todayDate = getDateTime();
 
         // Get data from Bundle (created in method newInstance)
@@ -78,42 +78,25 @@ public class PageFragment extends Fragment implements View.OnClickListener{
         smiley_img.setImageResource(smileys);
 
         // Comment Popup when click on Comment Image View
-        comment_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final AlertDialog.Builder comment_popup_diag = new AlertDialog.Builder(getActivity());
-                comment_popup_diag.setTitle("Commentaire");
-                edittxt_comment_popup = new EditText(getActivity());
-                comment_popup_diag.setView(edittxt_comment_popup);
-                comment_popup_diag.setPositiveButton("VALIDER", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        strg_popup_comment = edittxt_comment_popup.getText().toString();
-                        SharedPreferencesTool.putString(getActivity(),KEY_COMMENT+todayDate,strg_popup_comment);
-                    }
-                });
-                comment_popup_diag.setNegativeButton("ANNULER", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-                comment_popup_diag.show();
-            }
-        });
+        comment_btn.setOnClickListener(this);
 
         // New Activity when clicked on Historic Button
-        historic_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(getActivity(), HistoricActivity.class);
-                startActivity(myIntent);
-            }
-        });
+        historic_btn.setOnClickListener(this);
 
         // SMS Popup when click on SMS Image View
-        sms_btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
+        sms_btn.setOnClickListener(this);
+
+        return result;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.fragment_page_historic_imv:
+                Intent myIntent = new Intent(getActivity(), HistoricActivity.class);
+                startActivity(myIntent);
+                break;
+            case R.id.fragment_page_sms_imv:
                 final AlertDialog.Builder sms_popup_diag = new AlertDialog.Builder(getActivity());
                 inflater1 = getLayoutInflater();
                 sms_popup_view = inflater1.inflate(R.layout.sms_popup,null);
@@ -129,27 +112,45 @@ public class PageFragment extends Fragment implements View.OnClickListener{
                     public void onClick(View v) {
                         phone_number = phone_number_edt_txt.getText().toString();
                         sms_message = sms_edt_txt.getText().toString();
-                        if (phone_number.length()==0){
-                            Toast.makeText(getActivity(),"Veuillez entrer un numéro de téléphone", Toast.LENGTH_SHORT).show();
-                        }else if (phone_number.length()== 10) {
-                            sendSMSMessage();
-                        }
-                        else Toast.makeText(getActivity(), "Veuillez entrer un numéro de téléphone valide", Toast.LENGTH_SHORT).show();
-                    }
+                        if (phone_number.length()== 10) {sendSMSMessage();
+                        }else Toast.makeText(getActivity(), "Veuillez entrer un numéro de téléphone valide", Toast.LENGTH_SHORT).show();}
                 });
                 sms_popup_diag.setView(sms_popup_view);
                 sms_popup_diag.show();
-            }
-        });
-
-        return result;
+                break;
+            case R.id.fragment_page_commentary_imv:
+                final AlertDialog.Builder comment_popup_diag = new AlertDialog.Builder(getActivity());
+                comment_popup_diag.setTitle("Commentaire");
+                edittxt_comment_popup = new EditText(getActivity());
+                comment_popup_diag.setView(edittxt_comment_popup);
+                comment_popup_diag.setPositiveButton("VALIDER", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        strg_popup_comment = edittxt_comment_popup.getText().toString();
+                        SharedPreferencesTool.putString(getActivity(),KEY_COMMENT+todayDate,strg_popup_comment);
+                        Toast.makeText(getActivity(),"Message enregistré",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                comment_popup_diag.setNegativeButton("ANNULER", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                comment_popup_diag.show();
+                break;
+        }
     }
 
-    @Override
-    public void onClick(View v) {}
+    private void findViewbyId(){
+        rootView = result.findViewById(R.id.fragment_page_rootview);
+        smiley_img = result.findViewById(R.id.fragment_page_smiley_imv);
+        comment_btn = result.findViewById(R.id.fragment_page_commentary_imv);
+        historic_btn = result.findViewById(R.id.fragment_page_historic_imv);
+        sms_btn = result.findViewById(R.id.fragment_page_sms_imv);
+    }
 
     private String getDateTime() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.FRANCE);
         Date date = new Date();
         return dateFormat.format(date);
     }
@@ -173,7 +174,7 @@ public class PageFragment extends Fragment implements View.OnClickListener{
         }
     }
 
-    protected void sendSMSMessage() {
+    private void sendSMSMessage() {
 
         if (ContextCompat.checkSelfPermission(getActivity(),
                 Manifest.permission.SEND_SMS)

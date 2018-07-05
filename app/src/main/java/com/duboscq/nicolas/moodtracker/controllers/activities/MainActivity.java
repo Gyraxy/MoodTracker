@@ -15,15 +15,18 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    int mPosition;
+    private int mPosition;
     private int mPage;
     private final String todayDate = getDateTime();
-    DateFormat dateFormat;
+    private DateFormat dateFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        System.out.println("MainActivity:onCreate()");
+
         mPosition = SharedPreferencesTool.getInt(MainActivity.this, "POSITION"+todayDate, 5);
 
         if (mPosition == 5){
@@ -39,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         pager.setAdapter(new PageAdapter(getSupportFragmentManager(), getResources().getIntArray(R.array.colorPagesViewPager)){
         });
         pager.setCurrentItem(mPage);
-
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -56,5 +58,32 @@ public class MainActivity extends AppCompatActivity {
         dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.FRANCE);
         Date date = new Date();
         return dateFormat.format(date);
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        System.out.println("MainActivity:onStart()");
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        System.out.println("MainActivity:onResume()");
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        System.out.println("MainActivity:onPause()");
+    }
+    @Override
+    protected void onStop(){
+        super.onStop();
+        System.out.println("MainActivity:onStop()");
+    }
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        System.out.println("MainActivity:onDestroy()");
     }
 }

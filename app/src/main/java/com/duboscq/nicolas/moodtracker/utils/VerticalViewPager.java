@@ -51,7 +51,7 @@ public class VerticalViewPager extends ViewPager {
         return true;
     }
 
-    public class PageTransformer implements ViewPager.PageTransformer {
+    class PageTransformer implements ViewPager.PageTransformer {
 
         @Override
         public void transformPage(@NonNull View page, float position) {

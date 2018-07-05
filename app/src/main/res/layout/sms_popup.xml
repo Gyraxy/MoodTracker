@@ -2,8 +2,10 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:minHeight="150dp"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -16,8 +18,8 @@
 
         <EditText
             android:id="@+id/sms_popup_phone_number_edt"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
+            android:layout_width="@dimen/layout_width_edt"
+            android:layout_height="@dimen/layout_height_edt"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:textAlignment="center"
@@ -32,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="22dp"
+            android:layout_marginEnd="@dimen/txt_view_margin_end"
             android:textSize="@dimen/size_title"
             android:text="@string/sms"
             android:textColor="@color/white"
@@ -44,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="26dp"
+            android:layout_marginStart="@dimen/imv_margin_start"
             app:srcCompat="@drawable/ico_contacts"
             android:contentDescription="@string/desc"/>
 
@@ -58,13 +60,15 @@
 
         <EditText
             android:id="@+id/sms_popup_sms_edt"
-            android:layout_width="193dp"
-            android:layout_height="78dp"
+            android:layout_width="@dimen/layout_width_edt"
+            android:layout_height="@dimen/layout_height_edt"
             android:layout_centerInParent="true"
-            android:textAlignment="center"
+            android:layout_gravity="center"
             android:background="@color/white"
-            android:inputType="text"
-            android:hint="-"/>
+            android:hint="-"
+            android:inputType="textMultiLine"
+            android:textAlignment="center"
+            tools:ignore="HardcodedText" />
 
         <ImageView
             android:id="@+id/sms_popup_send_imv"
@@ -72,9 +76,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="20dp"
-            app:srcCompat="@drawable/ico_send"
-            android:contentDescription="@string/desc"/>
+            android:layout_gravity="center"
+            android:layout_marginEnd="15dp"
+            android:contentDescription="@string/desc"
+            app:srcCompat="@drawable/ico_send" />
 
     </RelativeLayout>
 

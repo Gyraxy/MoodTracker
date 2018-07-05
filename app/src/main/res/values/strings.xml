@@ -10,8 +10,7 @@
     <string name="three_days">Il y a trois jours</string>
     <string name="two_days">Avant-hier</string>
     <string name="one_day">Hier</string>
-    <string name="commentary">Commentaire</string>
-    <string name="desc">description</string>
+    <string name="desc">Description</string>
 
     <!-- FRAGMENT ACTIVITY  -->
     <string name="phone_number">Numéro de téléphone</string>

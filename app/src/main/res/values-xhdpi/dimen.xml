@@ -2,7 +2,14 @@
 <resources>
     <!-- TextViews -->
     <dimen name="size_title">20sp</dimen>
+    <dimen name="txt_view_margin_end">25dp</dimen>
 
-    <!-- Images -->
+    <!-- EditText -->
+    <dimen name="layout_height_edt">100dp</dimen>
+    <dimen name="layout_width_edt">200dp</dimen>
+
+    <!-- ImageView -->
+    <dimen name="imv_margin_end">20dp</dimen>
+    <dimen name="imv_margin_start">20dp</dimen>
 
 </resources>
