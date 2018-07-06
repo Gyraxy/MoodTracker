@@ -28,6 +28,7 @@ If the user has not launch the application during the day then no mood is shown.
 
 ## Last Modification
 04/07/2018 Application first released.
+06/07/2018 Add Comentaries to the code + change getWidth() by DisplayMetrics
 
 ## Licence
 ```

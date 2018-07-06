@@ -13,16 +13,19 @@ public class PageAdapter extends FragmentPagerAdapter{
 
     private final int[] colors;
 
+    //Set new PageAdapter
     public PageAdapter(FragmentManager mgr, int[] colors){
         super(mgr);
         this.colors = colors;
     }
 
+    //Set 5 Pages to PageAdapter
     @Override
     public int getCount(){
         return(5);
     }
 
+    //Place smiley ImageView and Background color for each PageFragment
     @Override
     public Fragment getItem(int position){
         switch (position){

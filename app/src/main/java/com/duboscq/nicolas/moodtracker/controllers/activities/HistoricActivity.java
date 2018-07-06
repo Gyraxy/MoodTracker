@@ -3,6 +3,7 @@ package com.duboscq.nicolas.moodtracker.controllers.activities;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -32,11 +33,14 @@ public class HistoricActivity extends AppCompatActivity {
 
         System.out.println("HistoricActivity:onCreate()");
 
+        //Gather Commentaries and ViewPager position saved during last seven days
         for (int i=0;i<7;i++){
             commentTxt[i]=SharedPreferencesTool.getString(HistoricActivity.this,KEY_COMMENT+date[i]);
             positionInt[i]=SharedPreferencesTool.getInt(HistoricActivity.this,KEY_POSITION+date[i],5);
         }
 
+
+        //Find View by iD in Historic Activity
         comment_1d_imv = findViewById(R.id.activity_historic_comment_1d_imv);
         comment_2d_imv = findViewById(R.id.activity_historic_comment_2d_imv);
         comment_3d_imv = findViewById(R.id.activity_historic_comment_3d_imv);
@@ -52,9 +56,11 @@ public class HistoricActivity extends AppCompatActivity {
         historic_6d = findViewById(R.id.activity_historic_6d_rlayout);
         historic_7d = findViewById(R.id.activity_historic_7d_rlayout);
 
+        //Place all ImageView and Relative layout in table
         ImageView commentImv[] = {comment_1d_imv,comment_2d_imv,comment_3d_imv,comment_4d_imv,comment_5d_imv,comment_6d_imv,comment_7d_imv};
         RelativeLayout historic[]={historic_1d,historic_2d,historic_3d,historic_4d,historic_5d,historic_6d,historic_7d};
 
+        //Apply background color, check if commentary saved on each seven days recorded mood
         for (int i=0;i<7;i++){
             checkVisibility(commentTxt[i],commentImv[i]);
             historic[i].setBackgroundColor(checkBackgroundcolor(positionInt[i]));
@@ -74,6 +80,7 @@ public class HistoricActivity extends AppCompatActivity {
         }
     }
 
+    //Method to check if commentary was recorded. If yes then show commentary icon
     private void checkVisibility(String strg, ImageView imageView) {
         int lenght = strg.length();
         if (lenght < 1) {
@@ -83,6 +90,7 @@ public class HistoricActivity extends AppCompatActivity {
         }
     }
 
+    //Method to apply background color depending of ViewPager position saved
     private int checkBackgroundcolor(int Int) {
         switch (Int) {
             case 0:
@@ -102,6 +110,7 @@ public class HistoricActivity extends AppCompatActivity {
         }
     }
 
+    //Method to search Date by adding day to today Date. yyyy/MM/dd format date
     private String addDayTime(int day){
         DateFormat dateFormat =new SimpleDateFormat("yyyy/MM/dd", Locale.FRANCE);
         Calendar cal = Calendar.getInstance();
@@ -109,8 +118,10 @@ public class HistoricActivity extends AppCompatActivity {
         return dateFormat.format(cal.getTime());
     }
 
+    //Depending of mood change layout width
     private int setLayoutwidth(int Int){
-        int width = getWindowManager().getDefaultDisplay().getWidth();
+        DisplayMetrics display = this.getResources().getDisplayMetrics();
+        int width = display.widthPixels;
         switch (Int){
             case 0:
                 return (int)Math.round(width*0.4);
@@ -128,6 +139,9 @@ public class HistoricActivity extends AppCompatActivity {
                     return width;
         }
     }
+
+
+    // OnStart/OnResume/OnPause/OnStop/OnDestroy method for application life cycle overview
     @Override
     protected void onStart(){
         super.onStart();

@@ -89,6 +89,7 @@ public class PageFragment extends Fragment implements View.OnClickListener{
         return result;
     }
 
+    //onClick Method to manage onClick in MainActivity
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -141,6 +142,7 @@ public class PageFragment extends Fragment implements View.OnClickListener{
         }
     }
 
+    //Group all findViewbyId in one method
     private void findViewbyId(){
         rootView = result.findViewById(R.id.fragment_page_rootview);
         smiley_img = result.findViewById(R.id.fragment_page_smiley_imv);
@@ -149,12 +151,14 @@ public class PageFragment extends Fragment implements View.OnClickListener{
         sms_btn = result.findViewById(R.id.fragment_page_sms_imv);
     }
 
+    //Today Date with yyyy/MM/dd format
     private String getDateTime() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.FRANCE);
         Date date = new Date();
         return dateFormat.format(date);
     }
 
+    //Transform Smiley ImageView in text smiley depending of ViewPager position
     private String getTxtSmiley(int position){
         switch (position){
             case 0:
@@ -174,6 +178,7 @@ public class PageFragment extends Fragment implements View.OnClickListener{
         }
     }
 
+    //Check SMS Permission allowed & send Message if ok
     private void sendSMSMessage() {
 
         if (ContextCompat.checkSelfPermission(getActivity(),
@@ -187,6 +192,8 @@ public class PageFragment extends Fragment implements View.OnClickListener{
             sendTextMsg();
         }
     }
+
+    //Permissions to send SMS
     @Override
     public void onRequestPermissionsResult(int requestCode,@NonNull String permissions[],@NonNull int[] grantResults) {
         switch (requestCode) {
@@ -207,6 +214,7 @@ public class PageFragment extends Fragment implements View.OnClickListener{
 
     }
 
+    //Send SMS Method using SmsManager
     private void sendTextMsg() {
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(phone_number, null, sms_message, null, null);
